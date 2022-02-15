@@ -1,6 +1,6 @@
 # msc-drawer
 
-[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/msc-drawer) 
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/msc-drawer) [![DeepScan grade](https://deepscan.io/api/teams/16372/projects/20204/branches/544941/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=16372&pid=20204&bid=544941)
 
 Drawer effect provides extra promotion space for web page. It is also a common effect in web pages &amp; APPs, such as Google APP applied it for image search or other related search results. Developers could also apply it for mentioning some information. &lt;msc-drawer /> provides different themes for light / dark mode and also mobile ready.
 

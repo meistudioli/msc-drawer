@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Web Component: &lt;msc-drawer /> - web components based dragable promotion module</title>
+<meta name="description" content="Drawer effect provides extra promotion space for web page. It is also a common effect in web pages & APPs, such as Google APP applied it for image search or other related search results. Developers could also apply it for mentioning some information. <msc-drawer /> provides different themes for light / dark mode and also mobile ready." />
+<script type="module" src="mjs/wc-msc-drawer.js"></script>
+<style>
+/* reset */
+div,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,legend,input,textarea,p,article,aside,figcaption,figure,nav,section,mark,audio,video,main{margin:0;padding:0}
+article,aside,figcaption,figure,nav,section,main{display:block}
+fieldset,img{border:0}
+address,caption,cite,em,strong{font-style:normal;font-weight:400}
+ol,ul{list-style:none}
+caption{text-align:left}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:400}
+abbr{border:0;font-variant:normal}
+input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}
+body{-webkit-text-size-adjust:none}
+select,input,button,textarea{font:100% arial,helvetica,clean,sans-serif;}
+del{font-style:normal;text-decoration:none}
+pre{font-family:monospace;line-height:100%}
+progress{-webkit-appearance:none;appearance:none;overflow:hidden;border:0 none;}
+
+/* page */
+html,body{font-family:system-ui,sans-serif;text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;font-size:16px;}
+#hd,#ft{display:none;}
+
+body{position:relative;inline-size:100vw;block-size:100vh;margin:0;padding:0}
+
+.demo{position:absolute;inset-inline-start:50%;inset-block-start:50%;inline-size:calc(100% - 24px);block-size:auto;max-inline-size:600px;background:#dce2f0;padding:2em;box-sizing:border-box;border-radius:1em;transform:translate(-50%,-50%);}
+
+.trigger{font-size:1.125em;color:#b60845;width:100%;height:2.77em;line-height:2.55;box-sizing:border-box;border:2px solid #b60845;border-radius:2.77em;text-align:center;text-transform:uppercase;transition:color 250ms ease,border-color 250ms ease;will-change:color,border-color;cursor:pointer;letter-spacing:.2em;display:block;user-select:none;text-decoration:none}
+.trigger:hover{font-weight:400;color:#db004d;border-color:#db004d;}
+[data-type="show"]{color:#4a8af1;border-color:#4a8af1;}
+[data-type="show"]:hover{color:#1b71fa;border-color:#1b71fa;}
+
+/* msc-drawer */
+msc-drawer:not(:defined){display:none;}
+.msc-drawer-content {
+  --text-color: #000;
+}
+.msc-drawer-content{position:relative;display:grid;gap:2em 1em;grid-template-columns:repeat(auto-fill, minmax(120px,1fr));grid-auto-rows:auto;}
+.msc-drawer-content__unit{text-decoration: none;}
+.msc-drawer-content__unit img{position:relative;inline-size:100%;aspect-ratio:1/1;display:block;object-fit:cover;border-radius:1em;}
+.msc-drawer-content__unit p{font-size:18px;line-height:2;font-weight:normal;color:var(--text-color);text-decoration:none;text-align:center;}
+.msc-drawer-content__unit p:hover{font-weight:normal;}
+@media (prefers-color-scheme: dark) {
+  .msc-drawer-content {
+    --text-color: #fefefe;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="demo">
+  <a href="#msc-ripple-effect" class="trigger" data-type="show">tap me</a>
+</div>
+
+<msc-drawer>
+  <script type="application/json">
+    {
+      "active": false,
+      "subject": "<msc-drawer />"
+    }
+  </script>
+  <div class="msc-drawer-content" slot="msc-drawer-content">
+    <a href="#unit" class="msc-drawer-content__unit" title="<msc-drawer /> demo link" aria-label="<msc-drawer /> demo link">
+      <img src="https://picsum.photos/id/20/160/160" title="<msc-drawer /> demo image" />
+      <p>unit title 1</p>
+    </a>
+    <a href="#unit" class="msc-drawer-content__unit" title="<msc-drawer /> demo link" aria-label="<msc-drawer /> demo link">
+      <img src="https://picsum.photos/id/26/160/160" title="<msc-drawer /> demo image" />
+      <p>unit title 2</p>
+    </a>
+    <a href="#unit" class="msc-drawer-content__unit" title="<msc-drawer /> demo link" aria-label="<msc-drawer /> demo link">
+      <img src="https://picsum.photos/id/635/160/160" title="<msc-drawer /> demo image" />
+      <p>unit title 3</p>
+    </a>
+    <a href="#unit" class="msc-drawer-content__unit" title="<msc-drawer /> demo link" aria-label="<msc-drawer /> demo link">
+      <img src="https://picsum.photos/id/20/160/160" title="<msc-drawer /> demo image" />
+      <p>unit title 4</p>
+    </a>
+    <a href="#unit" class="msc-drawer-content__unit" title="<msc-drawer /> demo link" aria-label="<msc-drawer /> demo link">
+      <img src="https://picsum.photos/id/26/160/160" title="<msc-drawer /> demo image" />
+      <p>unit title 5</p>
+    </a>
+    <a href="#unit" class="msc-drawer-content__unit" title="<msc-drawer /> demo link" aria-label="<msc-drawer /> demo link">
+      <img src="https://picsum.photos/id/635/160/160" title="<msc-drawer /> demo image" />
+      <p>unit title 6</p>
+    </a>
+    <a href="#unit" class="msc-drawer-content__unit" title="<msc-drawer /> demo link" aria-label="<msc-drawer /> demo link">
+      <img src="https://picsum.photos/id/20/160/160" title="<msc-drawer /> demo image" />
+      <p>unit title 7</p>
+    </a>
+    <a href="#unit" class="msc-drawer-content__unit" title="<msc-drawer /> demo link" aria-label="<msc-drawer /> demo link">
+      <img src="https://picsum.photos/id/26/160/160" title="<msc-drawer /> demo image" />
+      <p>unit title 8</p>
+    </a>
+    <a href="#unit" class="msc-drawer-content__unit" title="<msc-drawer /> demo link" aria-label="<msc-drawer /> demo link">
+      <img src="https://picsum.photos/id/635/160/160" title="<msc-drawer /> demo image" />
+      <p>unit title 9</p>
+    </a>
+    <a href="#unit" class="msc-drawer-content__unit" title="<msc-drawer /> demo link" aria-label="<msc-drawer /> demo link">
+      <img src="https://picsum.photos/id/20/160/160" title="<msc-drawer /> demo image" />
+      <p>unit title 10</p>
+    </a>
+    <a href="#unit" class="msc-drawer-content__unit" title="<msc-drawer /> demo link" aria-label="<msc-drawer /> demo link">
+      <img src="https://picsum.photos/id/26/160/160" title="<msc-drawer /> demo image" />
+      <p>unit title 11</p>
+    </a>
+    <a href="#unit" class="msc-drawer-content__unit" title="<msc-drawer /> demo link" aria-label="<msc-drawer /> demo link">
+      <img src="https://picsum.photos/id/635/160/160" title="<msc-drawer /> demo image" />
+      <p>unit title 12</p>
+    </a>
+    <a href="#unit" class="msc-drawer-content__unit" title="<msc-drawer /> demo link" aria-label="<msc-drawer /> demo link">
+      <img src="https://picsum.photos/id/20/160/160" title="<msc-drawer /> demo image" />
+      <p>unit title 13</p>
+    </a>
+    <a href="#unit" class="msc-drawer-content__unit" title="<msc-drawer /> demo link" aria-label="<msc-drawer /> demo link">
+      <img src="https://picsum.photos/id/26/160/160" title="<msc-drawer /> demo image" />
+      <p>unit title 14</p>
+    </a>
+    <a href="#unit" class="msc-drawer-content__unit" title="<msc-drawer /> demo link" aria-label="<msc-drawer /> demo link">
+      <img src="https://picsum.photos/id/635/160/160" title="<msc-drawer /> demo image" />
+      <p>unit title 15</p>
+    </a>
+    <a href="#unit" class="msc-drawer-content__unit" title="<msc-drawer /> demo link" aria-label="<msc-drawer /> demo link">
+      <img src="https://picsum.photos/id/20/160/160" title="<msc-drawer /> demo image" />
+      <p>unit title 16</p>
+    </a>
+    <a href="#unit" class="msc-drawer-content__unit" title="<msc-drawer /> demo link" aria-label="<msc-drawer /> demo link">
+      <img src="https://picsum.photos/id/26/160/160" title="<msc-drawer /> demo image" />
+      <p>unit title 17</p>
+    </a>
+    <a href="#unit" class="msc-drawer-content__unit" title="<msc-drawer /> demo link" aria-label="<msc-drawer /> demo link">
+      <img src="https://picsum.photos/id/635/160/160" title="<msc-drawer /> demo image" />
+      <p>unit title 18</p>
+    </a>
+    <a href="#unit" class="msc-drawer-content__unit" title="<msc-drawer /> demo link" aria-label="<msc-drawer /> demo link">
+      <img src="https://picsum.photos/id/20/160/160" title="<msc-drawer /> demo image" />
+      <p>unit title 19</p>
+    </a>
+    <a href="#unit" class="msc-drawer-content__unit" title="<msc-drawer /> demo link" aria-label="<msc-drawer /> demo link">
+      <img src="https://picsum.photos/id/26/160/160" title="<msc-drawer /> demo image" />
+      <p>unit title 20</p>
+    </a>
+    <a href="#unit" class="msc-drawer-content__unit" title="<msc-drawer /> demo link" aria-label="<msc-drawer /> demo link">
+      <img src="https://picsum.photos/id/635/160/160" title="<msc-drawer /> demo image" />
+      <p>unit title 21</p>
+    </a>
+  </div>
+</msc-drawer>
+
+<script>
+customElements.whenDefined('msc-drawer').then(() => {
+  const drawer = document.querySelector('msc-drawer');
+  const trigger = document.querySelector('.trigger');
+
+  // evt
+  drawer.addEventListener('msc-drawer-switch',
+    (evt) => {
+      const { type, detail } = evt;
+      console.log(`${type} > active:${detail.active}`);
+    }
+  );
+
+  trigger.addEventListener('click',
+    (evt) => {
+      evt.preventDefault();
+      drawer.active = true;
+    }
+  );
+});
+</script>
+
+</body>
+
+</html>
