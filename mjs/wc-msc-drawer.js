@@ -4,7 +4,7 @@ import { _wccss } from './common-css.js';
 const middleHeightRatio = 50; // cH * .5
 const maxHeightRatio = 90; // cH * .9
 const subjectPadding = 6;
-const subjectBasicSize = 48;
+const subjectBasicSize = 36;
 const subjectBlockSize = subjectBasicSize + subjectPadding * 2 + 1;
 const defaults = {
   active: false,
@@ -43,7 +43,7 @@ ${_wccss}
 
   --overlay-bgcolor: var(--msc-drawer-overlay-bgcolor);
   --msc-drawer-overlay-opacity: calc((var(--msc-drawer-block-factor) * (60 / 90)) / 100);
-  --msc-drawer-transition-duration: 200ms;
+  --msc-drawer-transition-duration: 300ms;
 
   --msc-drawer-subject-block-padding: ${subjectPadding}px;
   --msc-drawer-subject-block-size: ${subjectBlockSize}px;
@@ -53,7 +53,9 @@ ${_wccss}
   --msc-drawer-border-color: #c6c6c8;
   --msc-drawer-slot-mask: linear-gradient(to bottom, black calc(100% - 10px), transparent 100%);
   --msc-drawer-indicator-color: #c6c6c8;
+  --msc-drawer-indicator-inline-size: 48px;
 
+  --msc-drawer-close-size: ${subjectBasicSize}px;
   --msc-drawer-close-color: #000;
   --msc-drawer-close-opacity-normal: 0;
   --msc-drawer-close-opacity-active: 1;
@@ -68,10 +70,10 @@ ${_wccss}
 .overlay{position:absolute;inline-size:100%;block-size:100%;background:var(--overlay-bgcolor);opacity:var(--msc-drawer-overlay-opacity);transition:opacity var(--msc-drawer-transition-duration) ease;}
 .drawer{position:absolute;inset-inline-start:0;inset-block-start:var(--msc-drawer-y);inline-size:100%;block-size:var(--msc-drawer-block-size);border-radius:1.5em 1.5em 0 0;background:var(--msc-drawer-bgcolor);transition:top var(--msc-drawer-transition-duration) ease,height var(--msc-drawer-transition-duration) ease;box-shadow:0 0 6px rgba(0,0,0,.3);}
 .drawer__subject{font-size:20px;color:var(--msc-drawer-color);text-align:center;line-height:calc(var(--msc-drawer-subject-block-size) - 1px);block-size:var(--msc-drawer-subject-block-size);box-sizing:border-box;border-bottom:1px solid var(--msc-drawer-border-color);cursor:move;}
-.drawer__subject::before{position:absolute;inset-inline-start:50%;inset-block-start:6px;margin-inline-start:-30px;content:'';inline-size:60px;block-size:4px;background-color:var(--msc-drawer-indicator-color);border-radius:4px;pointer-events:none;}
+.drawer__subject::before{position:absolute;inset-inline-start:50%;inset-block-start:6px;margin-inline-start:calc((var(--msc-drawer-indicator-inline-size) / 2) * -1);content:'';inline-size:var(--msc-drawer-indicator-inline-size);block-size:4px;background-color:var(--msc-drawer-indicator-color);border-radius:4px;pointer-events:none;}
 .drawer__content{block-size:var(--msc-drawer-subject-content-block-size);box-sizing:border-box;padding:12px var(--msc-drawer-side-size) var(--msc-drawer-bottom-size);}
 .drawer__slot{inline-size:100%;block-size:100%;mask-image:var(--msc-drawer-slot-mask);-webkit-mask-image:var(--msc-drawer-slot-mask);}
-.drawer__close{position:absolute;inset-block-start:var(--msc-drawer-subject-block-padding);inset-inline-end:var(--msc-drawer-side-size);inline-size:3em;block-size:3em;border-radius:3em;display:block;background-color:var(--msc-drawer-close-bgcolor);opacity:var(--msc-drawer-close-opacity);transition:background-color 150ms ease,opacity 150ms ease;}
+.drawer__close{position:absolute;inset-block-start:var(--msc-drawer-subject-block-padding);inset-inline-end:var(--msc-drawer-side-size);inline-size:var(--msc-drawer-close-size);block-size:var(--msc-drawer-close-size);border-radius:var(--msc-drawer-close-size);display:block;background-color:var(--msc-drawer-close-bgcolor);opacity:var(--msc-drawer-close-opacity);transition:background-color 150ms ease,opacity 150ms ease;}
 .drawer__close:active{transform:scale(.9);}
 .drawer__close::before{position:absolute;inset-inline:0 0;inset-block:0 0;margin:auto;inline-size:1.5em;block-size:1.5em;content:'';background-color:var(--msc-drawer-close-color);clip-path:var(--msc-drawer-close-mask);}
 .drawer__close:focus{--msc-drawer-close-opacity:var(--msc-drawer-close-opacity-active);--msc-drawer-close-bgcolor:var(--msc-drawer-close-bgcolor-active);outline:0 none;}

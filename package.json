@@ -1,6 +1,6 @@
 {
   "name": "msc-drawer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Drawer effect provides extra promotion space for web page. It is also a common effect in web pages & APPs, such as Google APP applied it for image search or other related search results. Developers could also apply it for mentioning some information. <msc-drawer /> provides different themes for light / dark mode and also mobile ready.",
   "main": "index.html",
   "scripts": {
